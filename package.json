@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@catppuccin/daisyui": "^1.1.2",
+    "@hcaptcha/react-hcaptcha": "^1.11.0",
     "@neongamerbot/credits": "^0.0.1",
     "@neongamerbot/utils": "^0.0.1",
     "@types/node": "^16.7.13",
