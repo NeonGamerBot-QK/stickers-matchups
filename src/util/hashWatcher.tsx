@@ -1,10 +1,10 @@
 function reloadFunction() {
-        window.location.reload();    
+  window.location.reload();
 }
 export function watchHash() {
-    return window.addEventListener("hashchange",reloadFunction);
+  return window.addEventListener("hashchange", reloadFunction);
 }
 
 export function stopWatchingHash() {
-    return window.removeEventListener("hashchange",reloadFunction);
+  return window.removeEventListener("hashchange", reloadFunction);
 }
