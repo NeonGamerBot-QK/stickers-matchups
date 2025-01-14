@@ -1,9 +1,9 @@
 export function getUrl() {
   // dev and prod api moment
-  if(process.env.REACT_APP_USE_DEV) {
-    return "http://localhost:3002/"
+  if (process.env.REACT_APP_USE_DEV) {
+    return "http://localhost:3002/";
   } else {
-    return `https://api.saahild.com/api/hc-stickers-matchups/`
+    return `https://api.saahild.com/api/hc-stickers-matchups/`;
   }
 }
 export interface Sticker {
@@ -36,4 +36,6 @@ export function createFunctionForEndpoint(
   };
 }
 export const getLeaderboard = createFunctionForEndpoint("/leaderboard");
-export const getMatchups = createFunctionForEndpoint("/matchups?id="+localStorage.getItem('username'));
+export const getMatchups = createFunctionForEndpoint(
+  "/matchups?id=" + localStorage.getItem("username"),
+);
