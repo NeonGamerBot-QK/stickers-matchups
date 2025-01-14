@@ -6,8 +6,8 @@ export function Main() {
     watchHash();
     return () => {
       stopWatchingHash();
-    }
-  })
+    };
+  });
   return (
     <div className="hero min-h-screen" style={{ background: "var(--mantle)" }}>
       <div className="hero-content text-center">
