@@ -1,10 +1,27 @@
+export function getUrl() {
+  // dev and prod api moment
+  if(process.env.REACT_APP_USE_DEV) {
+    return "http://localhost:3002/"
+  } else {
+    return `https://api.saahild.com/api/hc-stickers-matchups/`
+  }
+}
+export interface Sticker {
+  name: string;
+  picture: string;
+  sku: string;
+}
+export interface Matchup {
+  hash: string;
+  sticker1: Sticker;
+  sticker2: Sticker;
+}
 // yea this aint being exploted like high seas matchups (data is to the LOW)
 export function getRequest(endpoint: string, method?: string, data?: any) {
-  return fetch(`https://api.saahild.com/hc-stickers-matchups` + endpoint, {
+  return fetch(getUrl() + endpoint, {
     method: method || "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.REACT_APP_SAAHILD_API_KEY}`,
     },
     body: JSON.stringify(data),
   }).then((res) => res.json());
@@ -19,7 +36,4 @@ export function createFunctionForEndpoint(
   };
 }
 export const getLeaderboard = createFunctionForEndpoint("/leaderboard");
-// export async function getLeaderboard() {
-// const data = await getRequest("/leaderboard")
-// return data
-// }
+export const getMatchups = createFunctionForEndpoint("/matchups?id="+localStorage.getItem('username'));
